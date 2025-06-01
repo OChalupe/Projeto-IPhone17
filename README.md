@@ -1,18 +1,46 @@
-## Getting Started
+# Simulador iPhone 2007
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Reprodução das funcionalidades apresentadas no lançamento do iPhone em 2007.
 
-## Folder Structure
+## 📊 Diagrama UML
 
-The workspace contains two folders by default, where:
+```mermaid
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+classDiagram
+  classDiagram
+  class IPhone {
+    + tocar()
+    + pausar()
+    + selecionarMusica(String musica)
+    + ligar(String numero)
+    + atender()
+    + iniciarCorreioVoz()
+    + exibirPagina(String url)
+    + adicionarNovaAba()
+    + atualizarPagina()
+  }
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+  class ReprodutorMusical {
+    <<interface>>
+    + tocar()
+    + pausar()
+    + selecionarMusica(String musica)
+  }
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+  class AparelhoTelefonico {
+    <<interface>>
+    + ligar(String numero)
+    + atender()
+    + iniciarCorreioVoz()
+  }
 
-## Dependency Management
+  class NavegadorInternet {
+    <<interface>>
+    + exibirPagina(String url)
+    + adicionarNovaAba()
+    + atualizarPagina()
+  }
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+  IPhone ..|> ReprodutorMusical
+  IPhone ..|> AparelhoTelefonico
+  IPhone ..|> NavegadorInternet
